@@ -44,3 +44,20 @@ document.querySelectorAll('.social-btn').forEach(btn => {
     setTimeout(() => ripple.remove(), 600);
   });
 });
+
+(function() {
+    // Animate profile pic on scroll
+    const profilePic = document.querySelector('.profile-pic-container');
+    if (!profilePic) return;
+  
+    function handleScroll() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      // When scrolled past 100px, shrink
+      if (scrollY > 100) {
+        profilePic.classList.add('shrunk');
+      } else {
+        profilePic.classList.remove('shrunk');
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  })();
