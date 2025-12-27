@@ -1,0 +1,329 @@
+/* Reset & base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #f8fafc;
+  --color-bg-dark: #111827;
+  --color-primary: #6366f1;
+  --color-accent: #06b6d4;
+  --color-text: #1e293b;
+  --color-text-dark: #f1f5f9;
+  --color-card: #fff;
+  --color-card-dark: #1e293b;
+  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+  --radius: 1.25rem;
+  --shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background var(--transition), color var(--transition);
+}
+
+body.dark {
+  background: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+.navbar {
+  width: 100%;
+  background: rgba(255,255,255,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: var(--shadow);
+  transition: background var(--transition);
+}
+
+body.dark .navbar {
+  background: rgba(17,24,39,0.96);
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  letter-spacing: -1px;
+  user-select: none;
+}
+
+.ripple {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(99,102,241,0.20);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 0.5s linear forwards;
+    z-index: 2;
+  }
+  @keyframes ripple {
+    to {
+      transform: translate(-50%, -50%) scale(2.2);
+      opacity: 0;
+    }
+  }  
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.7;
+  transition: opacity var(--transition), border-bottom var(--transition);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.2em;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  opacity: 1;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  transition: color var(--transition);
+  color: var(--color-primary);
+}
+
+.theme-icon {
+  display: inline-block;
+  width: 1.75em;
+  height: 1.75em;
+  background: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/moon.svg') no-repeat center/contain;
+  filter: invert(0.5);
+  transition: filter var(--transition);
+}
+
+body.dark .theme-icon {
+  background: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/sun.svg') no-repeat center/contain;
+  filter: invert(0.9);
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
+  padding: 2rem 1rem 0 1rem;
+}
+
+.main-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: fadeInDown 1s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-32px);}
+  100% { opacity: 1; transform: none; }
+}
+
+.main-header .highlight {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--color-text);
+  opacity: 0.7;
+  font-size: 1.1rem;
+  margin-top: 0.5em;
+}
+
+body.dark .subtitle {
+  color: var(--color-text-dark);
+  opacity: 0.8;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0 0 0;
+}
+
+.social-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--color-card);
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), transform var(--transition);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.social-btn img {
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.7);
+  transition: filter var(--transition);
+}
+
+.social-btn.instagram:hover img {
+  filter: none;
+}
+
+.social-btn.linkedin:hover img {
+  filter: none;
+}
+
+.social-btn.github:hover img {
+  filter: none;
+}
+
+.social-btn:hover,
+.social-btn:focus {
+  background: var(--color-primary);
+  outline: none;
+  transform: translateY(-6px) scale(1.07);
+}
+
+body.dark .social-btn {
+  background: var(--color-card-dark);
+}
+
+.home-section,
+.about-section {
+  margin: 2.5rem 0 0 0;
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+body.dark .home-section,
+body.dark .about-section {
+  background: var(--color-card-dark);
+  color: var(--color-text-dark);
+}
+
+.home-section h2,
+.about-section h2 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.5rem;
+  transition: background var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  min-height: 200px;
+}
+
+body.dark .project-card {
+  background: var(--color-card-dark);
+  color: var(--color-text-dark);
+}
+
+.project-card h3 {
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}
+
+.project-link {
+  margin-top: auto;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.project-link:hover {
+  color: var(--color-accent);
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--color-text);
+  opacity: 0.6;
+  padding: 1.5rem 0 1rem 0;
+  letter-spacing: 0.04em;
+  background: transparent;
+  margin-top: auto;
+}
+
+body.dark .footer {
+  color: var(--color-text-dark);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .main-content {
+    max-width: 98vw;
+    padding: 1.3rem 0.3rem 0 0.3rem;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1rem 0.5rem;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+  .social-buttons {
+    gap: 1rem;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar {
+    padding: 0.6rem 0.1rem;
+  }
+}
+
+/* Font import (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
