@@ -6,8 +6,7 @@
   <title>Development | Nathaniel Warneck</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Additional minimal styling for language tag and sort controls, fits with your style.css */
-    .sort-controls {
+    .filter-controls {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
@@ -15,7 +14,7 @@
       margin-bottom: 1.5rem;
       justify-content: center;
     }
-    .sort-btn {
+    .filter-btn {
       border: 1.5px solid var(--color-primary);
       background: var(--color-card);
       color: var(--color-primary);
@@ -26,8 +25,8 @@
       font-size: 1rem;
       transition: background var(--transition), color var(--transition), border var(--transition);
     }
-    .sort-btn.active,
-    .sort-btn:focus {
+    .filter-btn.active,
+    .filter-btn:focus {
       background: var(--color-primary);
       color: #fff;
       outline: none;
@@ -69,10 +68,11 @@
       <h1>Development Portfolio</h1>
       <p class="subtitle">A showcase of my latest projects and contributions.</p>
     </header>
-    <div class="sort-controls" id="sort-controls">
-      <button class="sort-btn active" data-sort="original">Default Order</button>
-      <button class="sort-btn" data-sort="name">Sort by Name (A–Z)</button>
-      <button class="sort-btn" data-sort="lang">Sort by Language</button>
+    <div class="filter-controls" id="filter-controls">
+      <button class="filter-btn active" data-lang="all">All</button>
+      <button class="filter-btn" data-lang="Java">Java</button>
+      <button class="filter-btn" data-lang="C">C</button>
+      <button class="filter-btn" data-lang="Python">Python</button>
     </div>
     <section class="projects-grid" id="projects-grid">
       <!-- Cards rendered by JS -->
@@ -105,14 +105,17 @@
       // Add more projects as needed
     ];
 
-    // ====== Sorting ======
-    let currentSort = 'original';
-    let originalOrder = projects.map((_, i) => i);
-
-    function renderProjects(projectsArr) {
+    function renderProjects(filterLang) {
       const grid = document.getElementById('projects-grid');
       grid.innerHTML = '';
-      projectsArr.forEach(proj => {
+      const filtered = filterLang === 'all'
+        ? projects
+        : projects.filter(p => p.language === filterLang);
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p style="opacity:0.7;text-align:center;">No projects found.</p>';
+        return;
+      }
+      filtered.forEach(proj => {
         const card = document.createElement('div');
         card.className = 'project-card';
 
@@ -145,33 +148,20 @@
       });
     }
 
-    function sortProjects(type) {
-      let sorted;
-      if (type === 'original') {
-        sorted = originalOrder.map(i => projects[i]);
-      } else if (type === 'name') {
-        sorted = [...projects].sort((a, b) => a.name.localeCompare(b.name));
-      } else if (type === 'lang') {
-        sorted = [...projects].sort((a, b) => a.language.localeCompare(b.language) || a.name.localeCompare(b.name));
-      }
-      renderProjects(sorted);
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-      renderProjects(projects);
-      const buttons = document.querySelectorAll('.sort-btn');
+      renderProjects('all');
+      const buttons = document.querySelectorAll('.filter-btn');
       buttons.forEach(btn => {
         btn.addEventListener('click', () => {
           buttons.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          const sortType = btn.dataset.sort;
-          currentSort = sortType;
-          sortProjects(sortType);
+          const lang = btn.dataset.lang;
+          renderProjects(lang);
         });
       });
     });
 
-    // ====== Theme Toggle ======
+    // ====== Theme Toggle, unchanged ======
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     function updateThemeIcon() {
