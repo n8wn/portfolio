@@ -1,3 +1,6 @@
+/* Font import (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 /* Reset & base styles */
 *,
 *::before,
@@ -63,22 +66,22 @@ body.dark .navbar {
 }
 
 .ripple {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: rgba(99,102,241,0.20);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%) scale(0);
-    animation: ripple 0.5s linear forwards;
-    z-index: 2;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(99,102,241,0.20);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 0.5s linear forwards;
+  z-index: 2;
+}
+@keyframes ripple {
+  to {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
   }
-  @keyframes ripple {
-    to {
-      transform: translate(-50%, -50%) scale(2.2);
-      opacity: 0;
-    }
-  }  
+}  
 
 .nav-links {
   display: flex;
@@ -379,6 +382,3 @@ body.dark .footer {
     padding: 0.6rem 0.1rem;
   }
 }
-
-/* Font import (Google Fonts) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');

@@ -5,6 +5,52 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Development | Nathaniel Warneck</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional minimal styling for language tag and sort controls, fits with your style.css */
+    .sort-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+    .sort-btn {
+      border: 1.5px solid var(--color-primary);
+      background: var(--color-card);
+      color: var(--color-primary);
+      font-weight: 600;
+      padding: 0.45em 1.25em;
+      border-radius: 0.7em;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background var(--transition), color var(--transition), border var(--transition);
+    }
+    .sort-btn.active,
+    .sort-btn:focus {
+      background: var(--color-primary);
+      color: #fff;
+      outline: none;
+    }
+    .lang-tag {
+      display: inline-block;
+      font-size: 0.92em;
+      font-weight: 600;
+      color: var(--color-accent);
+      background: rgba(6,182,212,0.11);
+      border-radius: 0.7em;
+      padding: 0.15em 0.95em 0.15em 0.75em;
+      margin-bottom: 0.2em;
+      margin-right: 0.5em;
+      letter-spacing: 0.01em;
+      vertical-align: middle;
+      margin-top: 0.1em;
+    }
+    body.dark .lang-tag {
+      background: rgba(6,182,212,0.25);
+      color: var(--color-accent);
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
@@ -23,28 +69,125 @@
       <h1>Development Portfolio</h1>
       <p class="subtitle">A showcase of my latest projects and contributions.</p>
     </header>
-    <section class="projects-grid">
-      <div class="project-card">
-        <h3>Calculator</h3>
-        <p>A simple and efficient arithmetic calculator program written in Java that performs basic mathematical operations following BEDMAS. This calculator supports addition, subtraction, multiplication, division, and exponents.</p>
-        <a href="https://github.com/n8wn/calculator" class="project-link">View Project</a>
-      </div>
-      <div class="project-card">
-        <h3>Number Guessing Game</h3>
-        <p>A simple number guessing game written in C.</p>
-        <a href="https://github.com/n8wn/numberGuessingGame" class="project-link">View Project</a>
-      </div>
-      <div class="project-card">
-        <h3>Contact Book</h3>
-        <p>A simple CLI based contact book application that allows the user to store, search, add, and delete contacts.</p>
-        <a href="https://github.com/n8wn/contactBook" class="project-link">View Project</a>
-      </div>
-      <!-- Add more project cards as needed -->
+    <div class="sort-controls" id="sort-controls">
+      <button class="sort-btn active" data-sort="original">Default Order</button>
+      <button class="sort-btn" data-sort="name">Sort by Name (A–Z)</button>
+      <button class="sort-btn" data-sort="lang">Sort by Language</button>
+    </div>
+    <section class="projects-grid" id="projects-grid">
+      <!-- Cards rendered by JS -->
     </section>
   </main>
   <footer class="footer">
     &copy; 2025 Nathaniel Warneck. All rights reserved.
   </footer>
-  <script src="script.js"></script>
+  <script>
+    // ====== Project Data ======
+    const projects = [
+      {
+        name: "Calculator",
+        description: "A simple and efficient arithmetic calculator program written in Java that performs basic mathematical operations following BEDMAS. This calculator supports addition, subtraction, multiplication, division, and exponents.",
+        link: "https://github.com/n8wn/calculator",
+        language: "Java"
+      },
+      {
+        name: "Number Guessing Game",
+        description: "A simple number guessing game written in C.",
+        link: "https://github.com/n8wn/numberGuessingGame",
+        language: "C"
+      },
+      {
+        name: "Contact Book",
+        description: "A simple CLI based contact book application that allows the user to store, search, add, and delete contacts.",
+        link: "https://github.com/n8wn/contactBook",
+        language: "Python"
+      }
+      // Add more projects as needed
+    ];
+
+    // ====== Sorting ======
+    let currentSort = 'original';
+    let originalOrder = projects.map((_, i) => i);
+
+    function renderProjects(projectsArr) {
+      const grid = document.getElementById('projects-grid');
+      grid.innerHTML = '';
+      projectsArr.forEach(proj => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+
+        // Language tag
+        const tag = document.createElement('span');
+        tag.className = 'lang-tag';
+        tag.innerText = proj.language;
+        card.appendChild(tag);
+
+        // Title
+        const title = document.createElement('h3');
+        title.innerText = proj.name;
+        card.appendChild(title);
+
+        // Desc
+        const desc = document.createElement('p');
+        desc.innerText = proj.description;
+        card.appendChild(desc);
+
+        // Link
+        const link = document.createElement('a');
+        link.className = 'project-link';
+        link.href = proj.link;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.innerText = 'View Project';
+        card.appendChild(link);
+
+        grid.appendChild(card);
+      });
+    }
+
+    function sortProjects(type) {
+      let sorted;
+      if (type === 'original') {
+        sorted = originalOrder.map(i => projects[i]);
+      } else if (type === 'name') {
+        sorted = [...projects].sort((a, b) => a.name.localeCompare(b.name));
+      } else if (type === 'lang') {
+        sorted = [...projects].sort((a, b) => a.language.localeCompare(b.language) || a.name.localeCompare(b.name));
+      }
+      renderProjects(sorted);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProjects(projects);
+      const buttons = document.querySelectorAll('.sort-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const sortType = btn.dataset.sort;
+          currentSort = sortType;
+          sortProjects(sortType);
+        });
+      });
+    });
+
+    // ====== Theme Toggle ======
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    function updateThemeIcon() {
+      if (document.body.classList.contains('dark')) {
+        themeIcon.style.background = "url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/sun.svg') no-repeat center/contain";
+        themeIcon.style.filter = "invert(0.9)";
+      } else {
+        themeIcon.style.background = "url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/moon.svg') no-repeat center/contain";
+        themeIcon.style.filter = "invert(0.5)";
+      }
+    }
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      updateThemeIcon();
+    });
+    document.addEventListener('DOMContentLoaded', updateThemeIcon);
+  </script>
 </body>
 </html>
