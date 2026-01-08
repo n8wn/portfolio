@@ -1,52 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Home | Nathaniel Warneck</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Your Name: developer, traveler, and creator." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-logo">NW</div>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="development.html">Development</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-    <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">
-      <span class="theme-icon" id="theme-icon"></span>
-    </button>
-  </nav>
-  <main class="main-content">
-    <header class="main-header">
-      <h1>Hello, I'm <span class="highlight">Nathaniel Warneck</span></h1>
-      <p class="subtitle">Welcome to my project portfolio.</p>
-      <div class="social-buttons">
-        <a href="https://instagram.com/natewarneckk" class="social-btn instagram" target="_blank" aria-label="Instagram">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
-        </a>
-        <a href="https://linkedin.com/in/nathaniel-warneck-125302264" class="social-btn linkedin" target="_blank" aria-label="LinkedIn">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
-        </a>
-        <a href="https://github.com/n8wn" class="social-btn github" target="_blank" aria-label="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
-        </a>
-      </div>
-    </header>
-    <div class="profile-pic-container">
-        <img src="me.jpg" alt="Nathaniel Warneck" class="profile-pic">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Your Name</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="projects.html">All Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <section class="home-section">
-      <h2>About This Site</h2>
-      <p>
-        This is my personal portfolio, built with HTML, CSS, and JavaScript. Explore my projects, learn more about me, or connect via social media!
-      </p>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Developer • Creator • Explorer</p>
+          <h1>Hi, I’m <span class="accent">Your Name</span>.</h1>
+          <p class="lead">
+            I build robust APIs, intuitive interfaces, and data‑driven solutions. I’ve competed internationally in robotics, DJ on weekends, and I’m always up for the next challenge.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">See My Work</a>
+            <a class="btn ghost" href="#resume">Get My Resume</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/portrait.jpg" alt="Portrait of Your Name" />
+        </div>
+      </div>
+      <div class="hero-backdrop"></div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container grid-2">
+        <div>
+          <h2>About Me</h2>
+          <p>
+            I’m a developer with a global perspective and a passion for shipping polished, production‑ready software.
+            I studied at a Russell Group university and previously attended CDNIS (Canadian International School of Hong Kong).
+          </p>
+          <ul class="about-highlights">
+            <li>Well‑traveled and culturally fluent; I thrive in diverse teams.</li>
+            <li>Built Major Wellness Health’s API system single‑handedly as a freelance engineer.</li>
+            <li>Competed in an international robotics competition.</li>
+            <li>Participated in the Canadian Computing Competition (CCC).</li>
+            <li>Volunteer at Feeding Hong Kong.</li>
+            <li>Hobbies: DJing and outrigger canoeing (outrigging).</li>
+          </ul>
+          <p>
+            I love solving complex problems with clean code, great documentation, and thoughtful UX.
+          </p>
+        </div>
+        <div>
+          <div class="collage">
+            <img src="assets/collage-1.jpg" alt="Travel photo" />
+            <img src="assets/collage-2.jpg" alt="Robotics competition" />
+            <img src="assets/collage-3.jpg" alt="Volunteering at Feeding Hong Kong" />
+            <img src="assets/collage-4.jpg" alt="Outrigger canoeing" />
+            <img src="assets/collage-5.jpg" alt="DJ setup" />
+            <img src="assets/collage-6.jpg" alt="Coding session" />
+          </div>
+          <p class="collage-note">A few snapshots from life & work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <h2>Skills</h2>
+        <p class="section-sub">A snapshot of tools I use to build scalable, delightful products.</p>
+        <div class="skills-wrap">
+          <div class="skill-card">
+            <h3>Languages</h3>
+            <ul class="tags">
+              <li>TypeScript</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>Go</li>
+              <li>SQL</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Frameworks</h3>
+            <ul class="tags">
+              <li>React</li>
+              <li>Next.js</li>
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>FastAPI</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Platforms</h3>
+            <ul class="tags">
+              <li>AWS</li>
+              <li>Vercel</li>
+              <li>Docker</li>
+              <li>PostgreSQL</li>
+              <li>Redis</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Practices</h3>
+            <ul class="tags">
+              <li>APIs & Integrations</li>
+              <li>Testing</li>
+              <li>CI/CD</li>
+              <li>System Design</li>
+              <li>Accessibility</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project1.jpg" alt="Major Wellness Health API dashboard" />
+            </div>
+            <div class="project-content">
+              <h3>Major Wellness Health API</h3>
+              <p>
+                A production‑grade REST API powering appointment scheduling, patient records, and analytics.
+                Designed and delivered single‑handedly: authentication, rate‑limiting, observability, and IaC.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/yourusername/mwh-api" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/mwh-api.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project2.jpg" alt="Robotics control interface" />
+            </div>
+            <div class="project-content">
+              <h3>Robotics Vision & Control</h3>
+              <p>
+                Vision‑assisted robotics stack used for an international competition:
+                real‑time object detection, PID control, and telemetry dashboard.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/yourusername/robotics-vision" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/robotics-vision.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project3.jpg" alt="Scheduling app UI" />
+            </div>
+            <div class="project-content">
+              <h3>Scheduling App</h3>
+              <p>
+                Cross‑platform scheduling app with calendar sync, notifications, and team collaboration.
+                Built with a TypeScript backend and a React front‑end.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/yourusername/scheduling-app" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/scheduling-app.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="more-projects">
+          <a class="btn" href="projects.html">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume" class="section section-alt">
+      <div class="container">
+        <h2>Resume</h2>
+        <p class="section-sub">View or download a PDF copy of my resume.</p>
+        <div class="resume-cta">
+          <a class="btn primary" id="viewResume" href="assets/resume.pdf" target="_blank" rel="noopener">Open Resume</a>
+          <a class="btn ghost" id="downloadResume" href="assets/resume.pdf" download>Download PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Interested in collaborating or have a role in mind? Let’s talk.</p>
+        <ul class="contact-list">
+          <li><a href="mailto:you@example.com">you@example.com</a></li>
+          <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
     </section>
   </main>
-  <footer class="footer">
-    &copy; 2025 Nathaniel Warneck. All rights reserved.
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+      <a class="to-top" href="#top" aria-label="Back to top">↑</a>
+    </div>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

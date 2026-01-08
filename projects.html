@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Projects</title>
+  <meta name="description" content="Projects by Your Name" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Your Name</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="page-title">Projects</h1>
+        <div class="project-grid two-per-row">
+          <!-- Example project cards (2 per row) -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project1.jpg" alt="Major Wellness Health API" />
+            </div>
+            <div class="project-content">
+              <h3>Major Wellness Health API</h3>
+              <p>
+                REST API platform with auth, rate‑limits, logging, and IaC. Enabled secure client integrations and reduced manual admin time by 60%.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/yourusername/mwh-api" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/mwh-api.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project2.jpg" alt="Robotics Vision & Control" />
+            </div>
+            <div class="project-content">
+              <h3>Robotics Vision & Control</h3>
+              <p>
+                Computer vision pipeline (YOLO‑based) with PID motor control and a telemetry dashboard; deployed on embedded Linux.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/yourusername/robotics-vision" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/robotics-vision.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project3.jpg" alt="Scheduling App" />
+            </div>
+            <div class="project-content">
+              <h3>Scheduling App</h3>
+              <p>
+                Team scheduling with calendar sync and notifications. Backend in TypeScript; front‑end in React with stateful caching.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/yourusername/scheduling-app" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/scheduling-app.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project4.jpg" alt="Personal Site Generator" />
+            </div>
+            <div class="project-content">
+              <h3>Personal Site Generator</h3>
+              <p>
+                CLI tool that scaffolds a modern, accessible portfolio site with CI/CD. Supports themes, content sourcing, and image optimization.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/yourusername/site-generator" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/site-generator.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project5.jpg" alt="Data Viz Dashboard" />
+            </div>
+            <div class="project-content">
+              <h3>Data Viz Dashboard</h3>
+              <p>
+                Interactive analytics dashboard with filters, drill‑downs, and exports. Built with D3/Canvas and a FastAPI backend.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/yourusername/data-viz" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/data-viz.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project6.jpg" alt="IoT Sensor Hub" />
+            </div>
+            <div class="project-content">
+              <h3>IoT Sensor Hub</h3>
+              <p>
+                Edge device for aggregating sensor data with MQTT and pushing to a cloud time‑series database, with alerting rules.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/yourusername/iot-sensor-hub" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/iot-sensor-hub.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+      <a class="to-top" href="#" aria-label="Back to top">↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,63 +1,50 @@
-// Theme toggle (light/dark mode)
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
-
-// Check local storage for theme
-if (window.matchMedia('(prefers-color-scheme: dark)').matches ||
-    localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark');
-}
-
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  if (document.body.classList.contains('dark')) {
-    localStorage.setItem('theme', 'dark');
-  } else {
-    localStorage.setItem('theme', 'light');
-  }
+// Smooth scroll for same-page anchor links
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  const targetId = link.getAttribute('href').slice(1);
+  if (!targetId) return;
+  const targetEl = document.getElementById(targetId);
+  if (!targetEl) return;
+  e.preventDefault();
+  targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// Animate theme icon
-function updateThemeIcon() {
-  if (document.body.classList.contains('dark')) {
-    themeIcon.style.backgroundImage =
-      "url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/sun.svg')";
-  } else {
-    themeIcon.style.backgroundImage =
-      "url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/moon.svg')";
-  }
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const siteNav = document.querySelector('.site-nav');
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    siteNav.classList.toggle('open');
+  });
+  // Close menu when clicking a link (mobile)
+  siteNav.addEventListener('click', (e) => {
+    if (e.target.matches('a')) siteNav.classList.remove('open');
+  });
 }
-updateThemeIcon();
 
-document.body.addEventListener('classChange', updateThemeIcon);
-new MutationObserver(updateThemeIcon).observe(document.body, {attributes: true, attributeFilter: ['class']});
+// Dynamic year in footer
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Optional: Button ripple effect for social buttons
-document.querySelectorAll('.social-btn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    const ripple = document.createElement('span');
-    ripple.className = 'ripple';
-    this.appendChild(ripple);
-    const rect = this.getBoundingClientRect();
-    ripple.style.left = (e.clientX - rect.left) + 'px';
-    ripple.style.top = (e.clientY - rect.top) + 'px';
-    setTimeout(() => ripple.remove(), 600);
+// Resume buttons: ensure target works and download triggers
+const viewBtn = document.getElementById('viewResume');
+const downloadBtn = document.getElementById('downloadResume');
+if (viewBtn) {
+  viewBtn.addEventListener('click', () => {
+    // no-op: anchor opens in new tab; kept for extension (analytics, etc.)
+  });
+}
+if (downloadBtn) {
+  downloadBtn.addEventListener('click', () => {
+    // download attribute handles it; kept for parity
+  });
+}
+
+// Optional: Back to top smooth scroll for projects.html footer link with href="#"
+document.querySelectorAll('a.to-top').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
-
-(function() {
-    // Animate profile pic on scroll
-    const profilePic = document.querySelector('.profile-pic-container');
-    if (!profilePic) return;
-  
-    function handleScroll() {
-      const scrollY = window.scrollY || window.pageYOffset;
-      // When scrolled past 100px, shrink
-      if (scrollY > 100) {
-        profilePic.classList.add('shrunk');
-      } else {
-        profilePic.classList.remove('shrunk');
-      }
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true });
-  })();
