@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nathaniel Warneck — Projects</title>
+  <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+  <meta name="description" content="Projects by Nathaniel Warneck" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo">Nathaniel Warneck</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="page-title">Projects</h1>
+        <div class="project-grid two-per-row">
+          <!--- first project: major wellness api work. -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/major-wellness-logo.png" alt="Major Wellness Health sync project." />
+            </div>
+            <div class="project-content">
+              <h3>Freelance Practice Better x Notion Sync Suite</h3>
+              <p>
+                I developed a comprehensive integration suite called Practice Better x Notion Sync Suite, which automates the synchronization of client, package, and task data between the Practice Better health platform and Notion workspaces. This robust Python project leverages multiple Practice Better API endpoints, the Notion API, and OAuth2 authentication to streamline and centralize key business workflows for health and wellness practices.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/n8wn/MajorWellnessWork" target="_blank" rel="noopener">GitHub</a>
+                <!---<a class="btn small ghost" href="assets/builds/mwh-api.zip" download>Download</a>--->
+              </div>
+            </div>
+          </article>
+          <!--- second project: calculator app-->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project2.jpg" alt="Calculator App." />
+            </div>
+            <div class="project-content">
+              <h3>Calculator</h3>
+              <p>
+                A console-based mathematical expression evaluator written in Java. It reads user input in the form of a mathematical problem, parses it, checks for errors, and computes the correct answer using the BEDMAS (Brackets, Exponents, Division/Multiplication, Addition/Subtraction) order of operations.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/n8wn/calculator" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/calculator.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+          <!--- third project: sudoku solver-->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project3.png" alt="Sudoku Solver." />
+            </div>
+            <div class="project-content">
+              <h3>Sudoku Solver</h3>
+              <p>
+                This project is a Sudoku puzzle solver implemented in Java using backtracking recursion. The application can solve any standard 9x9 Sudoku puzzle, taking a partially-filled grid as input and filling empty cells to complete the puzzle according to classic Sudoku rules.
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/n8wn/sudokuSolver" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/sudokuSolver.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+          <!--- fourth project: hangman -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project4.jpg" alt="Hangman clip art." />
+            </div>
+            <div class="project-content">
+              <h3>Classic Hangman (Java Edition)</h3>
+              <p>
+                Developed a fully interactive console-based Hangman game in Java. This project reads a dynamic list of words from a file, randomly selects a word, and guides the player through the classic Hangman guessing experience. The game tracks letters guessed, displays the current word state, and manages the number of allowed incorrect guesses. Strong emphasis on user experience, error handling (for file operations and input), and clear, readable code structure.
+Tech Stack: Java, File I/O, Collections, Console I/O
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/n8wn/hangman" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/hangman.zip" download>Download</a>
+              </div>
+            </div>
+          </article>
+          <!--- fifth project: tic tac toe --> 
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project5.jpg" alt="Tic Tac Toe Clip Art." />
+            </div>
+            <div class="project-content">
+              <h3>Tic-Tac-Toe Terminal Duel</h3>
+              <p>
+                Created a two-player Tic-Tac-Toe game playable via the Java console. Players take turns entering moves using an intuitive key mapping, with the game board updating after each move. The program checks for win and tie conditions after each turn and announces the result. The code demonstrates robust game loop management, input validation, and win-state logic, providing a seamless and fair game experience.
+Tech Stack: Java, Arrays, Console I/O, Game Logic
+              </p>
+              <div class="project-actions">
+                <a class="btn small" href="https://github.com/n8wn/ticTacToe" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn small ghost" href="assets/builds/ticTacToe.zip" download>Download</a>
+                <!-- next one is the data viz-->
+              </div>
+            </div>
+          </article>
+          <!--- sixth project: contact book -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project6.jpg" alt="Contact Book Clip Art." />
+            </div>
+            <div class="project-content">
+              <h3>CLI Contact Book</h3>
+              <p>
+                CLI Contact Book. Currently a work in progress.
+              </p>
+              <div class="project-actions">
+                
+                <a class="btn small" href="https://github.com/n8wn/contactBook" target="_blank" rel="noopener">GitHub</a>
+                <!--<a class="btn small ghost" href="assets/builds/iot-sensor-hub.zip" download>Download</a> -->
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Developed and designed by Nathaniel Warneck. All rights reserved.</p>
+      <a class="to-top" href="#" aria-label="Back to top">↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
