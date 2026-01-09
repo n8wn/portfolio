@@ -250,7 +250,56 @@
       <a class="to-top" href="#top" aria-label="Back to top">↑</a>
     </div>
   </footer>
+  <script>
+    // Simple Lightbox functionality
+    (function() {
+      const modal = document.getElementById('lightboxModal');
+      const modalImg = document.getElementById('lightboxImg');
+      const closeBtn = document.getElementById('lightboxClose');
+      // Select all images that should be expandable
+      const selector = '.collage img, .project-media img';
+      document.querySelectorAll(selector).forEach(img => {
+        img.setAttribute('tabindex','0');
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function() {
+          modal.classList.add('open');
+          modalImg.src = this.src;
+          modalImg.alt = this.alt;
+          modalImg.focus();
+        });
+        // Keyboard accessibility
+        img.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+      // Close modal
+      function closeModal() {
+        modal.classList.remove('open');
+        modalImg.src = '';
+        modalImg.alt = '';
+      }
+      closeBtn.addEventListener('click', closeModal);
+      // Close on background click
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+      // Close on ESC key
+      document.addEventListener('keydown', function(e) {
+        if (modal.classList.contains('open') && e.key === 'Escape') {
+          closeModal();
+        }
+      });
+    })();
+  </script>
 
   <script src="script.js"></script>
+  <!-- Lightbox Modal HTML -->
+<div class="lightbox-modal" id="lightboxModal" aria-modal="true" role="dialog" tabindex="-1">
+  <button class="close-btn" id="lightboxClose" aria-label="Close image">&times;</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
 </body>
 </html>
