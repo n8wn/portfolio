@@ -7,12 +7,15 @@
   <title>Nathaniel Warneck — Projects</title>
   <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
   <meta name="description" content="Projects by Nathaniel Warneck" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+
+  <!-- ── Header ── -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="index.html" class="logo">Nathaniel Warneck</a>
@@ -34,188 +37,165 @@
   <main>
     <section class="section">
       <div class="container">
-        <h1 class="page-title">Projects</h1>
+
+        <div class="projects-page-hero">
+          <p class="section-label">All Projects</p>
+          <h1 class="page-title">Everything I've built</h1>
+          <p class="section-sub">A full list of personal, academic, and freelance work.</p>
+        </div>
+
         <div class="project-grid two-per-row">
-          <!--- first project: major wellness api work. -->
+
+          <!-- 1 – Major Wellness -->
           <article class="project-card">
             <div class="project-media">
-              <img src="assets/major-wellness-logo.png" alt="Major Wellness Health sync project." />
+              <img src="assets/major-wellness-logo.png" alt="Major Wellness Health sync project" />
             </div>
             <div class="project-content">
-              <h3>Freelance Practice Better x Notion Sync Suite</h3>
+              <h3>Freelance Practice Better × Notion Sync Suite</h3>
               <p>
-                I developed a comprehensive integration suite called Practice Better x Notion Sync Suite, which
-                automates the synchronization of client, package, and task data between the Practice Better health
-                platform and Notion workspaces. This robust Python project leverages multiple Practice Better API
-                endpoints, the Notion API, and OAuth2 authentication to streamline and centralize key business workflows
-                for health and wellness practices.
+                A comprehensive integration suite that automates synchronization of client, package, and task data between the Practice Better health platform and Notion workspaces. Built in Python, leveraging multiple API endpoints, the Notion API, and OAuth2 authentication.
               </p>
               <div class="project-actions">
-                <a class="btn small" href="https://github.com/n8wn/MajorWellnessWork" target="_blank"
-                  rel="noopener">GitHub</a>
-                <!---<a class="btn small ghost" href="assets/builds/mwh-api.zip" download>Download</a>--->
+                <a class="btn small primary" href="https://github.com/n8wn/MajorWellnessWork" target="_blank" rel="noopener">GitHub →</a>
               </div>
             </div>
           </article>
-          <!--- second project: calculator app-->
+
+          <!-- 2 – Calculator -->
           <article class="project-card">
             <div class="project-media">
-              <img src="assets/project2.jpg" alt="Calculator App." />
+              <img src="assets/project2.jpg" alt="Calculator App" />
             </div>
             <div class="project-content">
               <h3>Calculator</h3>
               <p>
-                A console-based mathematical expression evaluator written in Java. It reads user input in the form of a
-                mathematical problem, parses it, checks for errors, and computes the correct answer using the BEDMAS
-                (Brackets, Exponents, Division/Multiplication, Addition/Subtraction) order of operations.
+                A console-based mathematical expression evaluator in Java. Reads user input, parses it, checks for errors, and computes the answer using the BEDMAS order of operations.
               </p>
               <div class="project-actions">
-                <a class="btn small" href="https://github.com/n8wn/calculator" target="_blank" rel="noopener">GitHub</a>
-                <a class="btn small ghost" href="assets/builds/calculator.zip" download>Download</a>
+                <a class="btn small primary" href="https://github.com/n8wn/calculator" target="_blank" rel="noopener">GitHub →</a>
+                <a class="btn small ghost"   href="assets/builds/calculator.zip" download>Download</a>
               </div>
             </div>
           </article>
-          <!--- third project: sudoku solver-->
+
+          <!-- 3 – Sudoku Solver -->
           <article class="project-card">
             <div class="project-media">
-              <img src="assets/project3.png" alt="Sudoku Solver." />
+              <img src="assets/project3.png" alt="Sudoku Solver" />
             </div>
             <div class="project-content">
               <h3>Sudoku Solver</h3>
               <p>
-                This project is a Sudoku puzzle solver implemented in Java using backtracking recursion. The application
-                can solve any standard 9x9 Sudoku puzzle, taking a partially-filled grid as input and filling empty
-                cells to complete the puzzle according to classic Sudoku rules.
+                A 9×9 Sudoku puzzle solver in Java using backtracking recursion. Takes a partially-filled grid and solves it according to classic Sudoku rules.
               </p>
               <div class="project-actions">
-                <a class="btn small" href="https://github.com/n8wn/sudokuSolver" target="_blank"
-                  rel="noopener">GitHub</a>
-                <a class="btn small ghost" href="assets/builds/sudokuSolver.zip" download>Download</a>
+                <a class="btn small primary" href="https://github.com/n8wn/sudokuSolver" target="_blank" rel="noopener">GitHub →</a>
+                <a class="btn small ghost"   href="assets/builds/sudokuSolver.zip" download>Download</a>
               </div>
             </div>
           </article>
-          <!--- fourth project: hangman -->
+
+          <!-- 4 – Hangman -->
           <article class="project-card">
             <div class="project-media">
-              <img src="assets/project4.jpg" alt="Hangman clip art." />
+              <img src="assets/project4.jpg" alt="Hangman" />
             </div>
             <div class="project-content">
               <h3>Classic Hangman (Java Edition)</h3>
               <p>
-                Developed a fully interactive console-based Hangman game in Java. This project reads a dynamic list of
-                words from a file, randomly selects a word, and guides the player through the classic Hangman guessing
-                experience. The game tracks letters guessed, displays the current word state, and manages the number of
-                allowed incorrect guesses. Strong emphasis on user experience, error handling (for file operations and
-                input), and clear, readable code structure.
-                Tech Stack: Java, File I/O, Collections, Console I/O
+                Fully interactive console-based Hangman in Java. Reads a dynamic word list from a file, randomly selects a word, and guides the player through the classic guessing experience. Emphasises UX, error handling, and readable code.
+                <br><small>Java · File I/O · Collections · Console I/O</small>
               </p>
               <div class="project-actions">
-                <a class="btn small" href="https://github.com/n8wn/hangman" target="_blank" rel="noopener">GitHub</a>
-                <a class="btn small ghost" href="assets/builds/hangman.zip" download>Download</a>
+                <a class="btn small primary" href="https://github.com/n8wn/hangman" target="_blank" rel="noopener">GitHub →</a>
+                <a class="btn small ghost"   href="assets/builds/hangman.zip" download>Download</a>
               </div>
             </div>
           </article>
-          <!--- fifth project: tic tac toe -->
+
+          <!-- 5 – Tic-Tac-Toe -->
           <article class="project-card">
             <div class="project-media">
-              <img src="assets/project5.jpg" alt="Tic Tac Toe Clip Art." />
+              <img src="assets/project5.jpg" alt="Tic-Tac-Toe" />
             </div>
             <div class="project-content">
-              <h3>Tic-Tac-Toe Terminal Duel</h3>
+              <h3>Tic‑Tac‑Toe Terminal Duel</h3>
               <p>
-                A Java Tic-Tac-Toe game featuring an unbeatable AI opponent built with a depth-weighted Minimax
-                algorithm. Supports Human vs Human, Human vs AI, and AI vs AI modes, with an intuitive keyboard mapping
-                for move input. The AI's optimality is verified exhaustively — a custom test runner simulates every
-                possible game state and confirms the AI never loses. Demonstrates recursive algorithms, game tree
-                search, object-oriented design, and thorough automated testing.
-                <br><br>
-                Tech Stack: Java, OOP, Minimax Algorithm, Recursive Game Tree Search, Console I/O
+                Java Tic-Tac-Toe with an unbeatable AI built on a depth-weighted Minimax algorithm. Supports Human vs Human, Human vs AI, and AI vs AI modes. AI optimality verified exhaustively with a custom test runner.
+                <br><small>Java · OOP · Minimax · Recursive Game Tree</small>
               </p>
               <div class="project-actions">
-                <a class="btn small" href="https://github.com/n8wn/ticTacToe" target="_blank" rel="noopener">GitHub</a>
-                <a class="btn small ghost" href="assets/builds/ticTacToe.zip" download>Download</a>
-                <!-- next one is the data viz-->
+                <a class="btn small primary" href="https://github.com/n8wn/ticTacToe" target="_blank" rel="noopener">GitHub →</a>
+                <a class="btn small ghost"   href="assets/builds/ticTacToe.zip" download>Download</a>
               </div>
             </div>
           </article>
-          <!--- mega tic tac toe project card -->
+
+          <!-- 6 – Ultimate TTT -->
           <article class="project-card">
             <div class="project-media">
-              <img src="assets/project-megaTTT.jpg" alt="Ultimate Tic Tac Toe board." />
+              <img src="assets/project-megaTTT.jpg" alt="Ultimate Tic-Tac-Toe" />
             </div>
             <div class="project-content">
-              <h3>Ultimate Tic Tac Toe</h3>
+              <h3>Ultimate Tic‑Tac‑Toe</h3>
               <p>
-                A Java implementation of Ultimate Tic Tac Toe — a strategic variant where each move determines which
-                board your opponent must play in next. Features a Monte Carlo Tree Search AI opponent that builds a
-                statistical game tree through thousands of random simulations, balancing exploration and exploitation
-                via the UCB1 formula. Supports Human vs Human, Human vs AI, and AI vs AI modes, with a built-in testing
-                framework for benchmarking AI configurations across batches of games. Demonstrates MCTS, game tree
-                search, object-oriented design, and statistical decision making.
-                <br><br>
-                Tech Stack: Java, OOP, Monte Carlo Tree Search, UCB1, Game Tree Simulation, Console I/O
+                Java implementation of Ultimate TTT. Features a Monte Carlo Tree Search AI that builds a statistical game tree via thousands of random simulations, balancing exploration and exploitation via UCB1. Built-in testing framework for benchmarking AI configurations.
+                <br><small>Java · MCTS · UCB1 · OOP</small>
               </p>
               <div class="project-actions">
-                <a class="btn small" href="https://github.com/n8wn/Mega-Tic-Tac-Toe" target="_blank"
-                  rel="noopener">GitHub</a>
-                <a class="btn small ghost" href="assets/builds/megaTicTacToe.zip" download>Download</a>
+                <a class="btn small primary" href="https://github.com/n8wn/Mega-Tic-Tac-Toe" target="_blank" rel="noopener">GitHub →</a>
+                <a class="btn small ghost"   href="assets/builds/megaTicTacToe.zip" download>Download</a>
               </div>
             </div>
           </article>
-          <!--- connect four project card -->
+
+          <!-- 7 – Connect Four -->
           <article class="project-card">
             <div class="project-media">
-              <img src="assets/project-connectfour.jpg" alt="Connect Four game board with red and yellow pieces." />
+              <img src="assets/project-connectfour.jpg" alt="Connect Four" />
             </div>
             <div class="project-content">
               <h3>Connect Four</h3>
               <p>
-                A Java implementation of Connect Four with a graphical interface built in Java Swing. Supports
-                two-player Human vs Human gameplay with full win detection across all four directions — horizontal,
-                vertical, and both diagonals. The board logic has been architected with AI development in mind,
-                including move enumeration and a board cloning system for simulating future game states. An AI
-                opponent using Minimax or Monte Carlo Tree Search is currently in development.
-                <br><br>
-                Tech Stack: Java, OOP, Java Swing, Win Detection Algorithms, Game State Simulation
+                Java Connect Four with a GUI built in Java Swing. Full win detection across horizontal, vertical, and diagonal directions. Board logic architected with AI development in mind — move enumeration and board cloning for future-state simulation.
+                <br><small>Java · OOP · Swing · Win Detection</small>
               </p>
               <div class="project-actions">
-                <a class="btn small" href="https://github.com/n8wn/connectFour" target="_blank"
-                  rel="noopener">GitHub</a>
-                <!--<a class="btn small ghost" href="assets/builds/connectFour.zip" download>Download</a>-->
+                <a class="btn small primary" href="https://github.com/n8wn/connectFour" target="_blank" rel="noopener">GitHub →</a>
               </div>
             </div>
           </article>
-          <!--- sixth project: contact book -->
+
+          <!-- 8 – Contact Book -->
           <article class="project-card">
             <div class="project-media">
-              <img src="assets/project6.jpg" alt="Contact Book Clip Art." />
+              <img src="assets/project6.jpg" alt="Contact Book" />
             </div>
             <div class="project-content">
               <h3>CLI Contact Book</h3>
               <p>
-                CLI Contact Book. Currently a work in progress.
+                A command-line contact management application. Work in progress.
               </p>
               <div class="project-actions">
-
-                <a class="btn small" href="https://github.com/n8wn/contactBook" target="_blank"
-                  rel="noopener">GitHub</a>
-                <!--<a class="btn small ghost" href="assets/builds/iot-sensor-hub.zip" download>Download</a> -->
+                <a class="btn small primary" href="https://github.com/n8wn/contactBook" target="_blank" rel="noopener">GitHub →</a>
               </div>
             </div>
           </article>
+
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ── Footer ── -->
   <footer class="site-footer">
     <div class="container footer-wrap">
-      <p>© <span id="year"></span> Developed and designed by Nathaniel Warneck. All rights reserved.</p>
-      <a class="to-top" href="#" aria-label="Back to top">↑</a>
+      <p>© <span id="year"></span> Nathaniel Warneck. All rights reserved.</p>
+      <a class="to-top" href="#" aria-label="Back to top">↑ Top</a>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
-
 </html>
